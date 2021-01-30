@@ -117,6 +117,16 @@ const requests = {
     method: 'GET',
     regex: /\/wp\/v2\/users\/\?(.*)/g,
     run: getUsers
+  },
+  getUsers2: {
+    method: 'GET',
+    regex: /\/wp\/v2\/users\?(.*)/g,
+    run: getUsers
+  },
+  getContext: {
+    method: 'GET',
+    regex: /\/\?(.*)/g,
+    run: getContext
   }
 }
 
@@ -353,6 +363,14 @@ async function getUser () {
 function getUsers () {
   return new Promise(resolve => {
     resolve([MockData.user])
+  })
+}
+/**
+ * Mock users request
+ */
+function getContext () {
+  return new Promise(resolve => {
+    resolve([MockData.context])
   })
 }
 
